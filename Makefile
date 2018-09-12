@@ -12,10 +12,12 @@ endif
 SOURCES = arr.c
 TEST_SOURCES = vendor/scut/scut.c unittest.c arr_test.c
 
-.PHONY: test
-test:
+bin/test: $(SOURCES) $(TEST_SOURCES)
 	$(CC) $(CFLAGS) -lcurl -lmxml $(SOURCES) $(TEST_SOURCES) -o$@
-	valgrind ./$@
+
+.PHONY: test
+test: bin/test
+	$<
 
 .PHONY: indent
 indent:
