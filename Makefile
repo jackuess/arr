@@ -15,7 +15,7 @@ SOURCES = arr.c
 TEST_SOURCES = vendor/scut/scut.c unittest.c arr_test.c
 
 bin/test: $(SOURCES) $(TEST_SOURCES)
-	$(CC) $(CFLAGS) -lcurl -lmxml $(SOURCES) $(TEST_SOURCES) -o$@
+	$(CC) $(CFLAGS) $(SOURCES) $(TEST_SOURCES) -o$@
 
 .PHONY: test
 test: bin/test
