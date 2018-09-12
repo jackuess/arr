@@ -9,6 +9,8 @@ else
 	CFLAGS += -DNDEBUG
 endif
 
+MEMCHECK = valgrind
+
 SOURCES = arr.c
 TEST_SOURCES = vendor/scut/scut.c unittest.c arr_test.c
 
@@ -18,6 +20,10 @@ bin/test: $(SOURCES) $(TEST_SOURCES)
 .PHONY: test
 test: bin/test
 	$<
+
+.PHONY: memcheck
+memcheck: bin/test
+	$(MEMCHECK) $<
 
 .PHONY: indent
 indent:
