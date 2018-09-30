@@ -76,4 +76,4 @@ size_t arrlen(const void *data) {
     return head->len;
 }
 
-void arrfree(void *data) { free(arrhead(data)); }
+void arrfree(const void *data) { free(arrhead(data)); }
